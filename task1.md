@@ -76,7 +76,17 @@
    ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Sort  (cost=3099.11..3099.12 rows=5 width=7) (actual time=74.715..74.718 rows=6 loops=1)"
+   "  Sort Key: category"
+   "  Sort Method: quicksort  Memory: 25kB"
+   "  ->  HashAggregate  (cost=3099.00..3099.05 rows=5 width=7) (actual time=74.694..74.697 rows=6 loops=1)"
+   "        Group Key: category"
+   "        Batches: 1  Memory Usage: 24kB"
+   "        ->  Seq Scan on t_books  (cost=0.00..2724.00 rows=150000 width=7) (actual time=0.019..18.568 rows=150000 loops=1)"
+   "Planning Time: 0.085 ms"
+   "Execution Time: 74.787 ms"
+   ```
    
    *Объясните результат:*
    [Ваше объяснение]
@@ -90,7 +100,14 @@
    ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Aggregate  (cost=3099.04..3099.05 rows=1 width=8) (actual time=55.373..55.375 rows=1 loops=1)"
+   "  ->  Seq Scan on t_books  (cost=0.00..3099.00 rows=15 width=0) (actual time=55.338..55.339 rows=0 loops=1)"
+   "        Filter: ((author)::text ~~ 'S%'::text)"
+   "        Rows Removed by Filter: 150000"
+   "Planning Time: 0.332 ms"
+   "Execution Time: 55.420 ms"
+   ```
    
    *Объясните результат:*
    [Ваше объяснение]
