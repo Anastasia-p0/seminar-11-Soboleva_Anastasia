@@ -126,7 +126,14 @@
     ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Aggregate  (cost=3475.88..3475.89 rows=1 width=8) (actual time=127.899..127.901 rows=1 loops=1)"
+   "  ->  Seq Scan on t_books  (cost=0.00..3474.00 rows=750 width=0) (actual time=127.888..127.891 rows=1 loops=1)"
+   "        Filter: (lower((title)::text) ~~ 'o%'::text)"
+   "        Rows Removed by Filter: 149999"
+   "Planning Time: 0.507 ms"
+   "Execution Time: 127.938 ms"
+   ```
    
    *Объясните результат:*
    [Ваше объяснение]
@@ -152,7 +159,16 @@
     ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Bitmap Heap Scan on t_books  (cost=12.00..16.02 rows=1 width=33) (actual time=2.803..2.804 rows=0 loops=1)"
+   "  Recheck Cond: (((category)::text = 'INDEX'::text) AND ((author)::text = 'SYSTEM'::text))"
+   "  Rows Removed by Index Recheck: 8818"
+   "  Heap Blocks: lossy=72"
+   "  ->  Bitmap Index Scan on t_books_brin_cat_auth_idx  (cost=0.00..12.00 rows=1 width=0) (actual time=0.041..0.042 rows=720 loops=1)"
+   "        Index Cond: (((category)::text = 'INDEX'::text) AND ((author)::text = 'SYSTEM'::text))"
+   "Planning Time: 0.335 ms"
+   "Execution Time: 2.869 ms"
+   ```
    
    *Объясните результат:*
    [Ваше объяснение]
