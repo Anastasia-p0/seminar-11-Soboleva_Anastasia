@@ -27,7 +27,14 @@
    ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Bitmap Heap Scan on t_books  (cost=12.00..16.01 rows=1 width=33) (actual time=0.028..0.028 rows=0 loops=1)"
+   "  Recheck Cond: (category IS NULL)"
+   "  ->  Bitmap Index Scan on t_books_brin_cat_idx  (cost=0.00..12.00 rows=1 width=0) (actual time=0.022..0.022 rows=0 loops=1)"
+   "        Index Cond: (category IS NULL)"
+   "Planning Time: 0.126 ms"
+   "Execution Time: 0.053 ms"
+   ```
    
    *Объясните результат:*
    [Ваше объяснение]
