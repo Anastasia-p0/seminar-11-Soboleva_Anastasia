@@ -52,7 +52,17 @@
    ```
    
    *План выполнения:*
-   [Вставьте план выполнения]
+   ```sql
+   "Bitmap Heap Scan on t_books  (cost=12.00..16.02 rows=1 width=33) (actual time=31.741..31.742 rows=0 loops=1)"
+   "  Recheck Cond: ((category)::text = 'INDEX'::text)"
+   "  Rows Removed by Index Recheck: 150000"
+   "  Filter: ((author)::text = 'SYSTEM'::text)"
+   "  Heap Blocks: lossy=1224"
+   "  ->  Bitmap Index Scan on t_books_brin_cat_idx  (cost=0.00..12.00 rows=1 width=0) (actual time=0.074..0.075 rows=12240 loops=1)"
+   "        Index Cond: ((category)::text = 'INDEX'::text)"
+   "Planning Time: 0.336 ms"
+   "Execution Time: 31.790 ms"
+   ```
    
    *Объясните результат (обратите внимание на bitmap scan):*
    [Ваше объяснение]
