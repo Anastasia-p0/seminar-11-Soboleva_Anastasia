@@ -29,7 +29,15 @@
     ```
     
     *План выполнения:*
-    [Вставьте план выполнения]
+    ```sql
+    "Bitmap Heap Scan on t_books  (cost=21.03..1336.08 rows=750 width=33) (actual time=0.022..0.023 rows=1 loops=1)"
+    "  Recheck Cond: (to_tsvector('english'::regconfig, (title)::text) @@ '''expert'''::tsquery)"
+    "  Heap Blocks: exact=1"
+    "  ->  Bitmap Index Scan on t_books_fts_idx  (cost=0.00..20.84 rows=750 width=0) (actual time=0.018..0.018 rows=1 loops=1)"
+    "        Index Cond: (to_tsvector('english'::regconfig, (title)::text) @@ '''expert'''::tsquery)"
+    "Planning Time: 0.530 ms"
+    "Execution Time: 0.049 ms"
+    ```
     
     *Объясните результат:*
     [Ваше объяснение]
