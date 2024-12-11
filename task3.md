@@ -21,7 +21,15 @@
     ```
     
     *План выполнения:*
-    [Вставьте план выполнения]
+    ```sql
+    "Bitmap Heap Scan on test_cluster  (cost=5579.04..20218.88 rows=500467 width=39) (actual time=25.775..135.163 rows=500615 loops=1)"
+    "  Recheck Cond: (category = 'A'::text)"
+    "  Heap Blocks: exact=8334"
+    "  ->  Bitmap Index Scan on test_cluster_cat_idx  (cost=0.00..5453.93 rows=500467 width=0) (actual time=24.212..24.213 rows=500615       loops=1)"
+    "        Index Cond: (category = 'A'::text)"
+    "Planning Time: 0.360 ms"
+    "Execution Time: 163.274 ms"
+    ```
     
     *Объясните результат:*
     [Ваше объяснение]
