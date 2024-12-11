@@ -98,7 +98,12 @@
      ```
      
      *План выполнения:*
-     [Вставьте план выполнения]
+     ```sql
+     "Index Scan using t_lookup_pk on t_lookup  (cost=0.42..8.44 rows=1 width=23) (actual time=0.053..0.054 rows=1 loops=1)"
+     "  Index Cond: ((item_key)::text = '0000000455'::text)"
+     "Planning Time: 0.234 ms"
+     "Execution Time: 0.091 ms"
+     ```
      
      *Объясните результат:*
      [Ваше объяснение]
@@ -110,7 +115,12 @@
      ```
      
      *План выполнения:*
-     [Вставьте план выполнения]
+     ```sql
+     "Index Scan using t_lookup_clustered_pkey on t_lookup_clustered  (cost=0.42..8.44 rows=1 width=23) (actual time=0.138..0.139            rows=1 loops=1)"
+     "  Index Cond: ((item_key)::text = '0000000455'::text)"
+     "Planning Time: 0.230 ms"
+     "Execution Time: 0.182 ms"
+     ```
      
      *Объясните результат:*
      [Ваше объяснение]
